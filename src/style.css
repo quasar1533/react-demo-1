@@ -1,0 +1,15 @@
+.app {
+  padding: 10px;
+  background: grey;
+  text-align: center;
+}
+
+.son {
+  padding: 10px;
+  background: yellow;
+}
+
+.grandson {
+  padding: 10px;
+  background: green;
+}

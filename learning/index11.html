@@ -20,19 +20,22 @@
   <div id="root"></div>
   <script type="text/babel">
     let n = 0;
-    const App = () => (
-      <div className="red">
-        {n}
-        <button onClick={
-          () => {
-            n += 1;
-            render();
-          }
-        }></button>
-      </div>
-    );
+    const App = () => {
+      return (
+        <div className="red">
+          {n}
+          <button onClick={
+            () => {
+              n += 1;
+              render();
+            }
+          }>+1</button>
+        </div>
+      )
+    };
     const render = () =>
       ReactDOM.render(<App />, document.querySelector('#root'));
+    render();
   </script>
 </body>
 
