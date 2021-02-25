@@ -4,62 +4,52 @@ const App = () => {
   return (
     <div className="app">
       Father
-      <Son msgForSon="hi, son" />
+      <Parent />
     </div>
   );
 };
 
-class Son extends React.Component {
-  constructor() {
-    super();
+class Parent extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      n: 1,
+      n: 0,
     };
   }
+  onClick = () => {
+    this.setState({ n: this.state.n + 1 });
+  };
   render() {
     return (
-      <div className="son">
-        Son value: {this.state.n}
-        {this.props.msgForSon}
-        <button
-          onClick={() => {
-            this.add();
-          }}
-        >
-          +1
-        </button>
-        <Grandson msgForGrandson="hi, grandson" />
+      <div className="parent">
+        hello
+        <hr />
+        <Child n={this.state.n} onClick={this.onClick}>
+          hi
+        </Child>
       </div>
     );
   }
-  add() {
-    // this.setState({ n: this.state.n + 1 });
-    // better to use below
-    this.setState((state, props) => {
-      const n = state.n + 1;
-      console.log(n);
-      return { n };
-    });
-  }
 }
 
-function Grandson(props) {
-  const arr = React.useState(0);
-  console.log(arr);
-  const [n, setN] = arr;
-  return (
-    <div className="grandson">
-      grandson value: {n}
-      {props.msgForGrandson}
-      <button
-        onClick={() => {
-          setN(n + 1);
-        }}
-      >
-        +1
-      </button>
-    </div>
-  );
+class Child extends React.Component {
+  componentWillReceiveProps(newProps, newContext) {
+    console.log("old props:");
+    console.log(this.props);
+    console.log("props changed");
+    console.log('new props:');
+    console.log(newProps);
+  }
+  render() {
+    return (
+      <div className="child">
+        child
+        <br />
+        {this.props.n}
+        <button onClick={this.props.onClick}>+1</button>
+      </div>
+    );
+  }
 }
 
 export default App;

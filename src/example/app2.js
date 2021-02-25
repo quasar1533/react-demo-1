@@ -1,34 +1,58 @@
 import React from "react";
 
-class App2 extends React.Component {
-  constructor() {
-    super();
+const App = () => {
+  return (
+    <div className="app">
+      Father
+      <Parent />
+    </div>
+  );
+};
+
+class Parent extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
       n: 0,
-      m: 0,
     };
-    this.addN = () => {
-      this.setState({ n: this.state.n + 1 });
-    };
-    // 这是非常好的写法，ES6之后，推出了更适合的更好的写法，如下↓
   }
-  addM = () => {
-    this.setState((state) => {
-      const m = state.m + 1;
-      return { m };
-    });
+  onClick = () => {
+    this.setState({ n: this.state.n + 1 });
+    this.setState({ n: this.state.n + 1 });
+  };
+  onClick2 = () => {
+    this.setState((state) => ({
+      n: state.n + 1,
+    }));
+    this.setState((state) => ({
+      n: state.n + 1,
+    }));
   };
   render() {
     return (
-      <div className="app2">
-        value-n: {this.state.n}
-        <button onClick={this.addN}>n+1</button>
-        <br />
-        value-m: {this.state.m}
-        <button onClick={this.addM}>m+1</button>
+      <div className="parent">
+        hello
+        <hr />
+        <Child n={this.state.n} onClick={this.onClick} onClick2={this.onClick2}>
+          hi
+        </Child>
       </div>
     );
   }
 }
 
-export default App2;
+class Child extends React.Component {
+  render() {
+    return (
+      <div className="child">
+        child
+        <br />
+        {this.props.n}
+        <button onClick={this.props.onClick}>+2</button>
+        <button onClick={this.props.onClick2}>+2</button>
+      </div>
+    );
+  }
+}
+
+export default App;
