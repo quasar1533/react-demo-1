@@ -13,3 +13,13 @@
   padding: 10px;
   background: green;
 }
+
+.app.red button {
+  background: red;
+  color: white;
+}
+
+.app.blue button {
+  background: blue;
+  color: white;
+}

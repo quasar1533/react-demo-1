@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 
 const App = (props) => {
-  const [n, setN] = useState(0);
+  const nRef = useRef(0);
+  console.log(nRef);
+
+  const update = useState(null)[1];
   const log = () => {
     setTimeout(() => {
-      console.log(`n: ${n}`);
-    }, 3000);
-  }; 
+      console.log(`nRef: ${nRef.current}`);
+    }, 2000);
+  };
   return (
     <>
       <div className="app">
         App
-        <div>n: {n}</div>
+        <div>n: {nRef.current}</div>
         <button
           onClick={() => {
-            setN(n + 1);
+            nRef.current += 1;
+            update(nRef.current);
           }}
         >
           n+1

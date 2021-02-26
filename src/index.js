@@ -6,13 +6,27 @@ import ReactDOM from "react-dom";
 import "./style.css";
 // import App from "./example/app1";
 // import App2 from "./example/app2";
-import App3 from "./example/app3";
+// import App3 from "./example/app3";
 // import App4 from "./example/app4";
-// import App5 from "./example/app5";
+import App5 from "./example/app5";
+export const data = {
+  _state: [],
+  index: 0,
+};
+export const render = () => {
+  data.index = 0;
+  ReactDOM.render(
+    <div>
+      {/* <App2 /> */}
+      <hr />
+    </div>,
+    document.getElementById("root")
+  );
+};
 
 ReactDOM.render(
   <div>
-    <App3 />
+    <App5 />
     <hr />
   </div>,
   document.getElementById("root")

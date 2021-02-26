@@ -1,38 +1,37 @@
 import React, { useState, useEffect } from "react";
 
 const App = (props) => {
-  const [childVisible, setChildVisible] = useState(true);
-  const show = () => {
-    setChildVisible(true);
-  };
-  const hide = () => {
-    setChildVisible(false);
-  };
-  return (
+  const [n, setN] = useState(0);
+  // let m, setM;
+  // if (n % 2 === 0) {
+  //   [m, setM] = useState(0);
+  // }
+  // 会报错
+  const x = (
     <>
       <div className="app">
         App
-        <div>
-          {childVisible ? (
-            <button onClick={hide}>hide</button>
-          ) : (
-            <button onClick={show}>show</button>
-          )}
-        </div>
-        <div>{childVisible ? <Child /> : null}</div>
+        <div>n: {n}</div>
+        <button
+          onClick={() => {
+            setN(n + 1);
+          }}
+        >
+          n+1
+        </button>
+        {/* <div>m: {m}</div>
+        <button
+          onClick={() => {
+            setM(m + 1);
+          }}
+        >
+          m+1
+        </button> */}
       </div>
     </>
   );
-};
-
-const Child = (props) => {
-  useEffect(() => {
-    return () => {
-      console.log("Child will be destroyed");
-    };
-    // 返回一个函数来模拟componentWillUnmount
-  });
-  return <div>Child</div>;
+  console.log(x);
+  return x;
 };
 
 export default App;
