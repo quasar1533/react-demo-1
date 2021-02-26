@@ -1,55 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const App = () => {
+const App = (props) => {
+  const [n, setN] = useState(0);
+  const [m, setM] = useState(0);
+  useEffect(() => {
+    console.log("updated");
+    // 相当于componentDidMount
+  }, []);
+  useEffect(() => {
+    console.log("n updated");
+    // 相当于指定数据的componentDidUpdate
+  }, [n]);
+  // useEffect方法默认页面每次render时都会执行一次。
+  // 效果和直接写在函数组件内部的代码是一致的。
   return (
-    <div className="app">
-      Father
-      <Parent />
-    </div>
+    <>
+      <div className="app">
+        App
+        <div>{n}</div>
+        <button
+          onClick={() => {
+            setN(n + 1);
+          }}
+        >
+          n+1
+        </button>
+        <div>{m}</div>
+        <button
+          onClick={() => {
+            setM(m + 1);
+          }}
+        >
+          m+1
+        </button>
+      </div>
+    </>
   );
 };
-
-class Parent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      n: 0,
-    };
-  }
-  onClick = () => {
-    this.setState({ n: this.state.n + 1 });
-  };
-  render() {
-    return (
-      <div className="parent">
-        hello
-        <hr />
-        <Child n={this.state.n} onClick={this.onClick}>
-          hi
-        </Child>
-      </div>
-    );
-  }
-}
-
-class Child extends React.Component {
-  componentWillReceiveProps(newProps, newContext) {
-    console.log("old props:");
-    console.log(this.props);
-    console.log("props changed");
-    console.log('new props:');
-    console.log(newProps);
-  }
-  render() {
-    return (
-      <div className="child">
-        child
-        <br />
-        {this.props.n}
-        <button onClick={this.props.onClick}>+1</button>
-      </div>
-    );
-  }
-}
 
 export default App;

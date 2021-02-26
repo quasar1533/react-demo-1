@@ -1,40 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {useUpdate} from "./mixin/useUpdate";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      n: 0,
-    };
-  }
-  onClick = () => {
-    this.setState((state) => ({
-      n: state.n + 1,
-    }));
-    this.setState((state) => ({
-      n: state.n - 1,
-    }));
-  };
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.n === this.state.n) {
-      console.log('nothing to update')
-      return false;
-    } else {
-      return true;
-    }
-  }
-  render() {
-    console.log('rendered')
-    return (
+const App = (props) => {
+  const [n, setN] = useState(0);
+
+  useUpdate(() => {
+    console.log("n updated");
+  }, [n]);
+  return (
+    <>
       <div className="app">
         App
-        <div>
-          {this.state.n}
-          <button onClick={this.onClick}>+1</button>
-        </div>
+        <div>{n}</div>
+        <button
+          onClick={() => {
+            setN(n + 1);
+          }}
+        >
+          +1
+        </button>
       </div>
-    );
-  }
-}
+    </>
+  );
+};
 
 export default App;

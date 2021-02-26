@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1d299b1c-6773-4b56-8128-7e9f6fab4841" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/example/app1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/app1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/app11.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/app12.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/example/app2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/app2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/app3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/app31.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/app4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/app5.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +52,8 @@
       <workItem from="1612920851118" duration="2148000" />
       <workItem from="1613750494121" duration="457000" />
       <workItem from="1613750965704" duration="1028000" />
-      <workItem from="1614221997757" duration="789000" />
+      <workItem from="1614221997757" duration="1477000" />
+      <workItem from="1614269462126" duration="83000" />
     </task>
     <servers />
   </component>
